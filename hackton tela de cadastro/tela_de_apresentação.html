@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeaTrail - Apresentação</title>
+    <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- Para ícones -->
+    <style>
+        body {
+            font-family: 'Alice', serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #003366; /* Cor azul sólida, sem gradiente */
+            color: white;
+            overflow-x: hidden;
+        }
+        .container {
+            text-align: center;
+            padding: 60px 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1 {
+            font-size: 4.5em;
+            margin-bottom: 30px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            letter-spacing: 2px;
+        }
+        p {
+            font-size: 1.5em;
+            line-height: 1.8;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        button {
+            background: #001F3F; /* Azul marinho sólido */
+            color: white;
+            font-family: 'Alice', serif;
+            font-size: 1.5em;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        button:hover {
+            background: #004080; /* Azul marinho mais claro no hover para efeito */
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        .icon {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Seja bem-vindo ao SeaTrail</h1>
+        <p>Bem-vindo ao SeaTrail, o seu novo parceiro de viagens. Aqui, você explora destinos incríveis enquanto participa de desafios, conquista medalhas, ganha pontos e desbloqueia vantagens exclusivas — tudo através de um sistema gamificado que transforma cada passo da sua jornada em algo divertido. No SeaTrail, você encontra rotas inteligentes, informações atualizadas e uma navegação simples, feita para evitar aqueles problemas comuns de sites de turismo. Nosso objetivo é te oferecer um serviço excelente, seguro e envolvente, para que você aproveite cada destino ao máximo e descubra o mundo do jeito mais emocionante possível.</p>
+        <button type="submit" onclick="trocarTela()">Explorar Aventuras</button>
+    </div>
+
+
+    <script>
+        function trocarTela() {
+            // Redireciona para outra página
+            window.location.href = "index2.html";
+        }
+    </script>
+</body>
+</html>
