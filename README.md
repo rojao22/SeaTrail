@@ -1,5 +1,7 @@
 Os debugadores:lUIS HENRIQUE,KAUA DOS SANTOS,ROGER BERNARDES,JOÃO RAFAEL E Naely Fonseca--------------------
 
+tecnologias usadas:Html,css e Javascript
+
 # SeaTrail
 
 🌊 SeaTrail
