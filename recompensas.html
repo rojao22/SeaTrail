@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recompensas Desbloqueadas - Praia da Joaquina</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset básico para consistência */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #003366; /* Azul sólido */
+            color: #FFFFFF;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.6; /* Melhor legibilidade */
+        }
+
+        /* Confetes animados */
+        .confetti {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #0000CD;
+            animation: fall 3s linear infinite;
+        }
+
+        .confetti-piece:nth-child(odd) {
+            background-color: #4169E1;
+        }
+
+        .confetti-piece:nth-child(3n) {
+            background-color: #4682B4;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            width: 100%;
+            padding: 2vw 2vw; /* Usando vw para escalabilidade */
+            text-align: center;
+            box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.5);
+            z-index: 2;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3vw; /* Escalável */
+            font-weight: 700;
+            text-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.7);
+        }
+
+        header p {
+            margin: 1vw 0 0;
+            font-size: 1.2vw; /* Escalável */
+            font-weight: 400;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 2vw auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .congratulations {
+            text-align: center;
+            margin-bottom: 4vw;
+            animation: popup 1s ease-out;
+        }
+
+        @keyframes popup {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .congratulations h2 {
+            margin-top: 0;
+            font-size: 2.5vw; /* Escalável */
+            font-weight: 700;
+            color: #FFFFFF;
+            text-shadow: 0.1vw 0.1vw 0.2vw rgba(0, 0, 0, 0.5);
+        }
+
+        .congratulations p {
+            font-size: 1.2vw; /* Escalável */
+            font-weight: 400;
+            margin-bottom: 3vw;
+        }
+
+        .rewards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3vw;
+            width: 100%;
+        }
+
+        .reward-card {
+            background: linear-gradient(135deg, #4169E1 0%, #0000CD 100%);
+            color: #FFFFFF;
+            padding: 2.5vw;
+            border-radius: 1.5vw;
+            box-shadow: 0 0.6vw 1.5vw rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: bounceIn 0.8s ease-out;
+            position: relative;
+        }
+
+        .reward-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .reward-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .reward-card:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .reward-card:hover {
+            transform: translateY(-1vw);
+            box-shadow: 0 1.2vw 2.5vw rgba(0, 0, 0, 0.4);
+        }
+
+        .reward-card .icon {
+            font-size: 4vw; /* Escalável */
+            margin-bottom: 1.5vw;
+            display: block;
+        }
+
+        .reward-card h3 {
+            margin: 0 0 1vw;
+            font-size: 1.5vw; /* Escalável */
+            font-weight: 700;
+        }
+
+        .reward-card p {
+            margin: 0;
+            font-size: 1vw; /* Escalável */
+            font-weight: 400;
+        }
+
+        .claim-button {
+            background: #001F3F;
+            color: #FFFFFF;
+            border: none;
+            padding: 1.5vw 3vw;
+            border-radius: 1vw;
+            cursor: pointer;
+            font-size: 1.2vw; /* Escalável */
+            font-weight: 700;
+            margin-top: 2vw;
+            transition: background 0.3s ease;
+            box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.3);
+        }
+
+        .claim-button:hover {
+            background: #004080;
+        }
+
+        /* Responsividade aprimorada para qualquer tela */
+        @media (max-width: 1200px) { /* Grandes desktops */
+            header h1 { font-size: 3.5vw; }
+            header p { font-size: 1.4vw; }
+            .congratulations h2 { font-size: 3vw; }
+            .congratulations p { font-size: 1.4vw; }
+            .reward-card h3 { font-size: 1.7vw; }
+            .reward-card p { font-size: 1.1vw; }
+            .claim-button { font-size: 1.4vw; }
+        }
+
+        @media (max-width: 768px) { /* Tablets */
+            header h1 { font-size: 4vw; }
+            header p { font-size: 1.5vw; }
+            .congratulations h2 { font-size: 3.5vw; }
+            .congratulations p { font-size: 1.5vw; }
+            .rewards-grid { grid-template-columns: 1fr; gap: 2vw; }
+            .reward-card { padding: 3vw; }
+            .reward-card .icon { font-size: 5vw; }
+            .reward-card h3 { font-size: 2vw; }
+            .reward-card p { font-size: 1.3vw; }
+            .claim-button { font-size: 1.6vw; padding: 2vw 4vw; }
+        }
+
+        @media (max-width: 480px) { /* Móveis */
+            header { padding: 3vw 2vw; }
+            header h1 { font-size: 5vw; }
+            header p { font-size: 2vw; }
+            .container { width: 95%; }
+            .congratulations { margin-bottom: 3vw; }
+            .congratulations h2 { font-size: 4vw; }
+            .congratulations p { font-size: 2vw; }
+            .reward-card { padding: 4vw; }
+            .reward-card .icon { font-size: 6vw; }
+            .reward-card h3 { font-size: 2.5vw; }
+            .reward-card p { font-size: 1.6vw; }
+            .claim-button { font-size: 2vw; padding: 2.5vw 5vw; }
+        }
+
+        @media (min-width: 1440px) { /* Telas ultra-wide */
+            header h1 { font-size: 2.5vw; }
+            .congratulations h2 { font-size: 2vw; }
+            .reward-card h3 { font-size: 1.3vw; }
+        }
+    </style>
+</head>
+<body>
+    <div class="confetti">
+        <!-- Confetes gerados dinamicamente -->
+    </div>
+
+    <header>
+        <h1>Turismo Aventura</h1>
+        <p>Recompensas Desbloqueadas - Praia da Joaquina</p>
+    </header>
+
+    <div class="container">
+        <div class="congratulations">
+            <h2>Parabéns! 🎉</h2>
+            <p>Você desbloqueou recompensas incríveis ao explorar a Praia da Joaquina. Continue sua aventura para mais conquistas!</p>
+        </div>
+
+        <div class="rewards-grid">
+            <div class="reward-card">
+                <span class="icon">🏆</span>
+                <h3>Medalha de Surfista</h3>
+                <p>+100 pontos! Prove seu domínio nas ondas.</p>
+            </div>
+
+            <div class="reward-card">
+                <span class="icon">🎁</span>
+                <h3>Desconto em Equipamentos</h3>
+                <p>10% off em pranchas e acessórios de surf.</p>
+            </div>
+
+            <div class="reward-card">
+                <span class="icon">⭐</span>
+                <h3>Badge de Explorador</h3>
+                <p>Suba no ranking global de aventureiros!</p>
+            </div>
+
+            <div class="reward-card">
+                <span class="icon">🌊</span>
+                <h3>Dicas Exclusivas</h3>
+                <p>Acesso a guias secretos de praias escondidas.</p>
+            </div>
+        </div>
+
+        <button class="claim-button" onclick="alert('Recompensas coletadas! Continue jogando!')">Coletar Recompensas</button>
+    </div>
+
+    <script>
+        // Garantir que o DOM esteja carregado antes de executar
+        document.addEventListener('DOMContentLoaded', function() {
+            function createConfetti() {
+                const confettiContainer = document.querySelector('.confetti');
+                if (!confettiContainer) return; // Segurança se o elemento não existir
+                for (let i = 0; i < 50; i++) {
+                    const piece = document.createElement('div');
+                    piece.classList.add('confetti-piece');
+                    piece.style.left = Math.random() * 100 + '%';
+                    piece.style.animationDelay = Math.random() * 3 + 's';
+                    confettiContainer.appendChild(piece);
+                }
+            }
+            createConfetti();
+        });
+    </script>
+</body>
+</html>
